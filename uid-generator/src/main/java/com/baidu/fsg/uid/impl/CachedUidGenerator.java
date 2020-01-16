@@ -148,6 +148,11 @@ public class CachedUidGenerator extends DefaultUidGenerator implements Disposabl
         bufferPaddingExecutor.start();
     }
 
+    public void setPaddingFactor(int paddingFactor) {
+        Assert.isTrue(paddingFactor > 0, "paddingFactor must be positive!");
+        this.paddingFactor = paddingFactor;
+    }
+
     /**
      * Setters for spring property
      */

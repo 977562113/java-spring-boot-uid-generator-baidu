@@ -1,22 +1,20 @@
 package com.foxwho.demo.controller;
 
-import com.foxwho.demo.service.UidGenService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.baidu.fsg.uid.UidGenerator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 @RestController
 public class UidController {
-    @Autowired
-    private UidGenService uidGenService;
 
-    @GetMapping("/uidGenerator")
+    @Resource(name = "cachedUidGenerator")
+    private UidGenerator uidGenerator;
+
+    @GetMapping("/id")
     public String UidGenerator() {
-        return String.valueOf(uidGenService.getUid());
+        return String.valueOf(uidGenerator.getUID());
     }
 
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
 }
