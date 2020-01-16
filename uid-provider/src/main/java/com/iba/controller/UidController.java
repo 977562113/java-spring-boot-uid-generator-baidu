@@ -1,4 +1,4 @@
-package com.foxwho.demo.controller;
+package com.iba.controller;
 
 import com.baidu.fsg.uid.UidGenerator;
 import org.springframework.web.bind.annotation.GetMapping;

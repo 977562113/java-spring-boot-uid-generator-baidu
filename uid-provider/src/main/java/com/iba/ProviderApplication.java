@@ -1,4 +1,4 @@
-package com.foxwho.demo;
+package com.iba;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

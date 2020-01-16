@@ -1,4 +1,4 @@
-package com.foxwho.demo.config;
+package com.iba.config;
 
 import com.baidu.fsg.uid.UidGenerator;
 import com.baidu.fsg.uid.impl.CachedUidGenerator;
