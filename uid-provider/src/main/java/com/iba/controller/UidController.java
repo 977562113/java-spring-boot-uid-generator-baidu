@@ -18,4 +18,14 @@ public class UidController {
         return uidGenerator.getUID();
     }
 
+    @GetMapping("/test")
+    public void test() {
+        //570万每秒
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 10000 * 1000; i++) {
+            uidGenerator.getUID();
+        }
+        System.out.println("time filter 耗时:"+ (System.currentTimeMillis() - start));
+    }
+
 }
