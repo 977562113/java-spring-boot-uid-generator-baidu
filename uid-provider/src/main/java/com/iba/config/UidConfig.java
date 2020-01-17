@@ -2,6 +2,7 @@ package com.iba.config;
 
 import com.baidu.fsg.uid.UidGenerator;
 import com.baidu.fsg.uid.impl.CachedUidGenerator;
+import com.baidu.fsg.uid.impl.DefaultUidGenerator;
 import com.baidu.fsg.uid.worker.DisposableWorkerIdAssigner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +35,18 @@ public class UidConfig {
         cachedUidGenerator.setWorkerIdAssigner(disposableWorkerIdAssigner);
         cachedUidGenerator.setPaddingFactor(50);
         cachedUidGenerator.setBoostPower(4);
+        cachedUidGenerator.setEpochStr("2020-01-01");
+
+        cachedUidGenerator.setTimeBits(32);//136年
+        cachedUidGenerator.setWorkerBits(19);//重启524000次
+        cachedUidGenerator.setSeqBits(12);//每秒4096个ID，不够会自动取下一秒的ID
+        return cachedUidGenerator;
+    }
+
+    @Bean("defaultUidGenerator")
+    public UidGenerator defaultUidGenerator(DisposableWorkerIdAssigner disposableWorkerIdAssigner) {
+        DefaultUidGenerator cachedUidGenerator = new DefaultUidGenerator();
+        cachedUidGenerator.setWorkerIdAssigner(disposableWorkerIdAssigner);
         cachedUidGenerator.setEpochStr("2020-01-01");
 
         cachedUidGenerator.setTimeBits(32);//136年

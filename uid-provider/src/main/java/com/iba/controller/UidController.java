@@ -10,11 +10,12 @@ import javax.annotation.Resource;
 public class UidController {
 
     @Resource(name = "cachedUidGenerator")
+//    @Resource(name = "defaultUidGenerator")
     private UidGenerator uidGenerator;
 
     @GetMapping("/id")
-    public String UidGenerator() {
-        return String.valueOf(uidGenerator.getUID());
+    public Long UidGenerator() {
+        return uidGenerator.getUID();
     }
 
 }
